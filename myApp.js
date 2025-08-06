@@ -1,3 +1,4 @@
+require('dotenv').config()
 let express = require('express');
 let app = express();
 console.log('Hello World');
@@ -14,11 +15,19 @@ function myRoute (req, res) {
 stylePth = __dirname + '/public';
 app.use(express.static(stylePth));
 
-app.get('/json',myJson );
-function myJson(req, res){
+const MESSAGE_STYLE = process.env.MESSAGE_STYLE;
+
+if (MESSAGE_STYLE==="uppercase"){
+    app.get('/json',myJson );
+    function myJson(req, res){
+    res.json({ message: "HELLO JSON " });
+}
+}else {
+    app.get('/json',myJson );
+    function myJson(req, res){
     res.json({ message: "Hello json" });
 }
-
+}
 
 
 
