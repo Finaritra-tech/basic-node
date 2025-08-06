@@ -1,7 +1,7 @@
-require('dotenv').config()
 let express = require('express');
 let app = express();
 console.log('Hello World');
+require('dotenv').config()
 
 absolutePath = __dirname + '/views/index.html';
 
@@ -17,19 +17,13 @@ app.use(express.static(stylePth));
 
 const MESSAGE_STYLE = process.env.MESSAGE_STYLE;
 
-if (MESSAGE_STYLE==="uppercase"){
-    app.get('/json',myJson );
-    function myJson(req, res){
-    res.json({ message: "HELLO JSON " });
-}
-}else {
-    app.get('/json',myJson );
-    function myJson(req, res){
-    res.json({ message: "Hello json" });
-}
-}
-
-
+app.get('/json', (req, res) => {
+    let message = 'Hello json'
+    if (MESSAGE_STYLE ==='uppercase'){
+        message = message.toUpperCase()
+    }
+    res.json({"message" : message})
+})
 
 
 
