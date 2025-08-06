@@ -12,8 +12,12 @@ function myRoute (req, res) {
 }
 
 stylePth = __dirname + '/public';
-app.use('/public', express.static(stylePth));
+app.use(express.static(stylePth));
 
+app.get('/json',myJson );
+function myJson(req, res){
+    res.json({ message: "Hello json" });
+}
 
 
 
