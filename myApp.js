@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express();
-// console.log('Hello World');
 require('dotenv').config()
+
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next(); 
@@ -34,6 +34,13 @@ app.get('/json', (req, res) => {
   
   res.json(response);
 });
+
+app.get('/',function(req, res, next){
+  req.time = new Date().toString()
+  next()
+}, function(req, res){
+  res.json({time: req.time})
+})
 
 
 
