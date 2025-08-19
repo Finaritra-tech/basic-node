@@ -2,10 +2,20 @@ let express = require('express');
 let app = express();
 require('dotenv').config()
 
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path} - ${req.ip}`);
-  next(); 
-});
+// app.use((req, res, next) => {
+//   console.log(`${req.method} ${req.path} - ${req.ip}`);
+//   next(); 
+// });
+
+app.get('/now',
+  function(req, res, next) {
+    req.time = new Date().toString(); 
+    next(); 
+  },
+  function(req, res) {
+    res.json({ time: req.time }); 
+  }
+);
 // app.use(mware);
 // function mware(req, res, next){
 //   console.log(req.method, req.path, req.ip)
@@ -34,15 +44,7 @@ app.use((req, res, next) => {
   
 //   res.json(response);
 // });
-app.get('/now',
-  function(req, res, next) {
-    req.time = new Date().toString(); 
-    next(); 
-  },
-  function(req, res) {
-    res.json({ time: req.time }); 
-  }
-);
+
 
 
 
