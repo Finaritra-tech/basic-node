@@ -25,17 +25,17 @@ app.use((req, res, next) => {
 
 // const MESSAGE_STYLE = process.env.MESSAGE_STYLE;
 
-app.get('/json', (req, res) => {
-  let response = { message: "Hello json" };
+// app.get('/json', (req, res) => {
+//   let response = { message: "Hello json" };
   
-  if (process.env.MESSAGE_STYLE === "uppercase") {
-    response.message = response.message.toUpperCase();
-  }
+//   if (process.env.MESSAGE_STYLE === "uppercase") {
+//     response.message = response.message.toUpperCase();
+//   }
   
-  res.json(response);
-});
+//   res.json(response);
+// });
 
-app.get('/',function(req, res, next){
+app.get('/now',function(req, res, next){
   req.time = new Date().toString()
   next()
 }, function(req, res){
