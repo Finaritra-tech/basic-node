@@ -4,11 +4,11 @@ console.log('Hello World');
 require('dotenv').config()
 
 
-app.use('/', (req, res, next) => {
+app.use(mware);
+function mware(req, res, next){
   console.log(req.method, req.path, req.ip)
   next();
-})
-
+}
 absolutePath = __dirname + '/views/index.html';
 
 
