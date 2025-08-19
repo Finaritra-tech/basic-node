@@ -17,20 +17,19 @@ app.get('/now',
   }
 );
 
-console.log('hello ffi')
 // app.use(mware);
 // function mware(req, res, next){
 //   console.log(req.method, req.path, req.ip)
 //   next();
 // }
-// absolutePath = __dirname + '/views/index.html';
+absolutePath = __dirname + '/views/index.html';
 
 
-// app.get('/', myRoute);
-// function myRoute (req, res) {
-//     // res.send('Hello Express');
-//     res.sendFile(absolutePath);
-// }
+app.get('/', myRoute);
+function myRoute (req, res) {
+    // res.send('Hello Express');
+    res.sendFile(absolutePath);
+}
 
 // stylePth = __dirname + '/public';
 // app.use(express.static(stylePth));
