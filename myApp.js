@@ -8,28 +8,29 @@ require('dotenv').config()
 // });
 
 app.get('/now',
-  function(req, res, next) {
-    req.time = new Date().toString(); 
+  (req, res, next) => {
+    req.time = new Date().toString();
     next(); 
   },
-  function(req, res) {
-    res.json({ time: req.time }); 
+  (req, res) => {
+    res.json({ time: req.time });
   }
 );
+
 
 // app.use(mware);
 // function mware(req, res, next){
 //   console.log(req.method, req.path, req.ip)
 //   next();
 // }
-absolutePath = __dirname + '/views/index.html';
+// absolutePath = __dirname + '/views/index.html';
 
 
-app.get('/', myRoute);
-function myRoute (req, res) {
-    // res.send('Hello Express');
-    res.sendFile(absolutePath);
-}
+// app.get('/', myRoute);
+// function myRoute (req, res) {
+//     // res.send('Hello Express');
+//     res.sendFile(absolutePath);
+// }
 
 // stylePth = __dirname + '/public';
 // app.use(express.static(stylePth));
