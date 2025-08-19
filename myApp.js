@@ -1,14 +1,16 @@
 let express = require('express');
 let app = express();
-console.log('Hello World');
+// console.log('Hello World');
 require('dotenv').config()
-
-
-app.use(mware);
-function mware(req, res, next){
-  console.log(req.method, req.path, req.ip)
-  next();
-}
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next(); 
+});
+// app.use(mware);
+// function mware(req, res, next){
+//   console.log(req.method, req.path, req.ip)
+//   next();
+// }
 // absolutePath = __dirname + '/views/index.html';
 
 
@@ -23,15 +25,15 @@ function mware(req, res, next){
 
 // const MESSAGE_STYLE = process.env.MESSAGE_STYLE;
 
-// app.get('/json', (req, res) => {
-//   let response = { message: "Hello json" };
+app.get('/json', (req, res) => {
+  let response = { message: "Hello json" };
   
-//   if (process.env.MESSAGE_STYLE === "uppercase") {
-//     response.message = response.message.toUpperCase();
-//   }
+  if (process.env.MESSAGE_STYLE === "uppercase") {
+    response.message = response.message.toUpperCase();
+  }
   
-//   res.json(response);
-// });
+  res.json(response);
+});
 
 
 
