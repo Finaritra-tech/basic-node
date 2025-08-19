@@ -16,6 +16,8 @@ app.get('/now',
     res.json({ time: req.time }); 
   }
 );
+
+console.log('hello ffi')
 // app.use(mware);
 // function mware(req, res, next){
 //   console.log(req.method, req.path, req.ip)
