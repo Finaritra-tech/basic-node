@@ -7,18 +7,18 @@ require('dotenv').config()
 //   next(); 
 // });
 
-app.get(
-  "/now",
-  (req, res, next) => {
-    req.time = new Date().toString();
-    next();
-  },
-  (req, res) => {
-    res.send({
-      time: req.time
-    });
-  }
-);
+// app.get(
+//   "/now",
+//   (req, res, next) => {
+//     req.time = new Date().toString();
+//     next();
+//   },
+//   (req, res) => {
+//     res.send({
+//       time: req.time
+//     });
+//   }
+// );
 
 
 // app.use(mware);
@@ -26,17 +26,17 @@ app.get(
 //   console.log(req.method, req.path, req.ip)
 //   next();
 // }
-// absolutePath = __dirname + '/views/index.html';
+absolutePath = __dirname + '/views/index.html';
 
 
-// app.get('/', myRoute);
-// function myRoute (req, res) {
-//     // res.send('Hello Express');
-//     res.sendFile(absolutePath);
-// }
+app.get('/', myRoute);
+function myRoute (req, res) {
+    // res.send('Hello Express');
+    res.sendFile(absolutePath);
+}
 
-// stylePth = __dirname + '/public';
-// app.use(express.static(stylePth));
+stylePth = __dirname + '/public';
+app.use(express.static(stylePth));
 
 // const MESSAGE_STYLE = process.env.MESSAGE_STYLE;
 
