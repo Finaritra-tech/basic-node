@@ -9,29 +9,29 @@ function mware(req, res, next){
   console.log(req.method, req.path, req.ip)
   next();
 }
-absolutePath = __dirname + '/views/index.html';
+// absolutePath = __dirname + '/views/index.html';
 
 
-app.get('/', myRoute);
-function myRoute (req, res) {
-    // res.send('Hello Express');
-    res.sendFile(absolutePath);
-}
+// app.get('/', myRoute);
+// function myRoute (req, res) {
+//     // res.send('Hello Express');
+//     res.sendFile(absolutePath);
+// }
 
-stylePth = __dirname + '/public';
-app.use(express.static(stylePth));
+// stylePth = __dirname + '/public';
+// app.use(express.static(stylePth));
 
-const MESSAGE_STYLE = process.env.MESSAGE_STYLE;
+// const MESSAGE_STYLE = process.env.MESSAGE_STYLE;
 
-app.get('/json', (req, res) => {
-  let response = { message: "Hello json" };
+// app.get('/json', (req, res) => {
+//   let response = { message: "Hello json" };
   
-  if (process.env.MESSAGE_STYLE === "uppercase") {
-    response.message = response.message.toUpperCase();
-  }
+//   if (process.env.MESSAGE_STYLE === "uppercase") {
+//     response.message = response.message.toUpperCase();
+//   }
   
-  res.json(response);
-});
+//   res.json(response);
+// });
 
 
 
