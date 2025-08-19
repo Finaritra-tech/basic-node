@@ -7,13 +7,16 @@ require('dotenv').config()
 //   next(); 
 // });
 
-app.get('/now',
+app.get(
+  "/now",
   (req, res, next) => {
     req.time = new Date().toString();
-    next(); 
+    next();
   },
   (req, res) => {
-    res.json({ time: req.time });
+    res.send({
+      time: req.time
+    });
   }
 );
 
