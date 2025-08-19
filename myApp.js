@@ -7,15 +7,15 @@ require('dotenv').config()
 //   next(); 
 // });
 
-// app.get('/now',
-//   function(req, res, next) {
-//     req.time = new Date().toString(); 
-//     next(); 
-//   },
-//   function(req, res) {
-//     res.json({ time: req.time }); 
-//   }
-// );
+app.get('/now',
+  function(req, res, next) {
+    req.time = new Date().toString(); 
+    next(); 
+  },
+  function(req, res) {
+    res.json({ time: req.time }); 
+  }
+);
 
 // app.use(mware);
 // function mware(req, res, next){
