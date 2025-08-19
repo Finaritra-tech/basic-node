@@ -35,8 +35,7 @@ function myRoute (req, res) {
     res.sendFile(absolutePath);
 }
 
-stylePth = __dirname + '/public';
-app.use(express.static(stylePth));
+app.use("/public", express.static(__dirname + "/public"));
 
 // const MESSAGE_STYLE = process.env.MESSAGE_STYLE;
 
