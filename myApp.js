@@ -20,10 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // })
 app.post('/name',(req, res) => {
   // var {first : firstname, last:lastname} = req.body
- const first = req.body.first
-  const last = req.body.last
-
-res.json({name :`${firstname} ${lastname}`})
+var string = req.body.first + " " + req.body.last;
+  res.json({ name: string });
 })
 // app.get('/:word/echo', (req, res) =>{
 //   const {word} = req.params;
