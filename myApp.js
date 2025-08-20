@@ -3,10 +3,17 @@ let app = express();
 require('dotenv').config()
 
 
-app.get('/:word/echo', (req, res) =>{
-  const {word} = req.params;
-  res.json({echo: word});
-})
+app.get('/name', (req, res) => {
+  const first = req.query.first
+  const last = req.query.last
+
+res.json({name :`${first} ${last}`})
+}
+)
+// app.get('/:word/echo', (req, res) =>{
+//   const {word} = req.params;
+//   res.json({echo: word});
+// })
 
 // app.use((req, res, next) => {
 //   console.log(`${req.method} ${req.path} - ${req.ip}`);
