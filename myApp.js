@@ -1,15 +1,23 @@
 let express = require('express');
 let app = express();
 require('dotenv').config()
+var bodyParser = require('body-parser')
 
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/name', (req, res) => {
+app.route('/name')
+.get((req, res) => {
   const first = req.query.first
   const last = req.query.last
 
 res.json({name :`${first} ${last}`})
-}
-)
+})
+.post((req, res) => {
+ const first = req.query.first
+  const last = req.query.last
+
+res.json({name :`${first} ${last}`})
+})
 // app.get('/:word/echo', (req, res) =>{
 //   const {word} = req.params;
 //   res.json({echo: word});
