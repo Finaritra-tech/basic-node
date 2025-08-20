@@ -3,8 +3,8 @@ let app = express();
 require('dotenv').config()
 
 
-app.get('/echo/:word', (req, res) =>{
-  const word = req.params.word;
+app.get('/:word/echo', (req, res) =>{
+  const {word} = req.params;
   res.json({echo: word});
 })
 
